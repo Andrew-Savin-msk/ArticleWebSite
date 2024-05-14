@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница входа в аккаунт
+{% endblock %}
+
+{% block body %}
+<script>// Показать тост с задержкой, затем скрыть
+    window.onload = function() {
+      // Показать тосты сразу после загрузки
+      var toasts = document.querySelectorAll('.toast-message');
+      toasts.forEach(function(toast) {
+        toast.classList.add('toast-show');
+      });
+    
+      // Скрыть тосты через 5 секунд
+      setTimeout(function() {
+        toasts.forEach(function(toast) {
+          toast.classList.add('toast-hide');
+        });
+      }, 5000); // Скрываем уведомления через 5 секунд
+    };
+  </script>
+<div class="toast-container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="toast-message toast-show">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</div>
+  
+<div class="form-container">
+<form action="/login" method="post">
+    <label for="login">Логин:</label>
+    <input type="text" id="login" name="login" required>
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Войти">
+</form>
+<a href="/register" class="register-link">Зарегистрироваться</a>
+</div>
+{% endblock %}

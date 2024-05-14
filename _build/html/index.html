@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to WebApp’s documentation! &#8212; документация WebApp 0.1.</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=c956f044"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-webapp-s-documentation">
+<h1>Welcome to WebApp’s documentation!<a class="headerlink" href="#welcome-to-webapp-s-documentation" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="simple">
+<dt>… automodule:: application.models</dt><dd><dl class="field-list simple">
+<dt class="field-odd">members<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+<p id="module-application.routes">Основной модуль веб-приложения на Flask, реализующий функционал блога.</p>
+<p>Предоставляет интерфейс для просмотра статей, аутентификации пользователей,
+создания, редактирования и удаления постов. Также включает функции для регистрации
+пользователей и управления сессиями входа/выхода.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.create_article">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">create_article</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.create_article" title="Link to this definition">¶</a></dt>
+<dd><p>Создает новый пост. Поддерживает GET для загрузки формы и POST для создания данных.</p>
+<p>Требует аутентификации. Возвращает форму для создания нового поста при GET-з
+апросе. При успешном POST-запросе создаёт пост и перенаправляет на „/posts“.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.create_update">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">create_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.create_update" title="Link to this definition">¶</a></dt>
+<dd><p>Обновляет пост по его идентификатору. Поддерживает GET для загрузки формы и POST для обновления данных.</p>
+<p>Требует аутентификации. Возвращает форму для редактирования поста при GET-запросе.
+При успешном POST-запросе обновляет пост и перенаправляет на „/posts“.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.index">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.index" title="Link to this definition">¶</a></dt>
+<dd><p>Отображает главную страницу.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.login_page">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">login_page</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.login_page" title="Link to this definition">¶</a></dt>
+<dd><p>Обрабатывает вход пользователя. Поддерживает GET для загрузки формы и POST для аутентификации
+При успешном входе перенаправляет на главную страницу, иначе возвращает на страницу входа с сообщением об ошибке.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.logout">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.logout" title="Link to this definition">¶</a></dt>
+<dd><p>Обрабатывает выход пользователя из системы.
+После выхода перенаправляет на главную страницу.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.posts">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.posts" title="Link to this definition">¶</a></dt>
+<dd><p>Отображает страницу со списком всех статей.</p>
+<p>Возвращает страницу с постами, отсортированными по дате публикации.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.posts_delete">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">posts_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.posts_delete" title="Link to this definition">¶</a></dt>
+<dd><p>Удаляет пост по его идентификатору и перенаправляет на страницу со списком постов.</p>
+<p>Требует аутентификации. В случае успеха перенаправляет на „/posts“.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.posts_detail">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">posts_detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.posts_detail" title="Link to this definition">¶</a></dt>
+<dd><p>Отображает детальную страницу поста по его идентификатору.</p>
+<p>Требует аутентификации. Возвращает страницу детального просмотра статьи.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.redirect_to_signin">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">redirect_to_signin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.redirect_to_signin" title="Link to this definition">¶</a></dt>
+<dd><p>Перенаправляет неаутентифицированных пользователей на страницу входа, если доступ требует аутентификации.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.register">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.register" title="Link to this definition">¶</a></dt>
+<dd><p>Обрабатывает регистрацию нового пользователя. Поддерживает GET для загрузки формы и POST для регистрации.
+В случае успешной регистрации перенаправляет на страницу входа, иначе возвращает на страницу регистрации с сообщением об ошибке.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="application.routes.user_posts">
+<span class="sig-prename descclassname"><span class="pre">application.routes.</span></span><span class="sig-name descname"><span class="pre">user_posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#application.routes.user_posts" title="Link to this definition">¶</a></dt>
+<dd><p>Отображает страницу с постами текущего пользователя.</p>
+<p>Требует аутентификации. Возвращает страницу с постами, созданными текущим пользователем.</p>
+</dd></dl>
+
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Алфавитный указатель</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Состав модуля</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Поиск</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">WebApp</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Andrew.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

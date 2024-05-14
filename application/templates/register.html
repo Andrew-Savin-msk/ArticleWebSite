@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница регистраии
+{% endblock %}
+
+{% block body %}
+<script>// Показать тост с задержкой, затем скрыть
+  window.onload = function() {
+    // Показать тосты сразу после загрузки
+    var toasts = document.querySelectorAll('.toast-message');
+    toasts.forEach(function(toast) {
+      toast.classList.add('toast-show');
+    });
+  
+    // Скрыть тосты через 5 секунд
+    setTimeout(function() {
+      toasts.forEach(function(toast) {
+        toast.classList.add('toast-hide');
+      });
+    }, 5000); // Скрываем уведомления через 5 секунд
+  };
+</script>
+<div class="toast-container">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="toast-message toast-show">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>
+
+<div class="form-container">
+    <form action="/register" method="post">
+      <label for="login">Логин:</label>
+      <input type="text" id="login" name="login" required>
+  
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" name="password" required>
+  
+      <label for="repeat-password">Повторить пароль:</label>
+      <input type="password" id="repeat-password" name="repeat-password" required>
+  
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name">
+
+      <label for="email">Почта:</label>
+      <input type="text" id="email" name="email" required placeholder="your-email@example.com">
+
+      <label for="phone-number">Номер телефона:</label>
+      <input type="text" id="phone-number" name="phone-number" pattern="[+]?[0-9\s.-]{10,15}" placeholder="Введите номер телефона с кодом страны, например +1234567890">
+  
+      <input type="submit" value="Зарегистрироваться">
+    </form>
+</div>  
+{% endblock %}

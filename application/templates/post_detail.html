@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{article.title}}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1> {{article.title}} </h1>
+
+    <div class="alert alert-info d-flex justify-content-between">
+        <div>
+            <p>{{ article.text }}</p>
+            <p><b>Дата: {{ article.date }}</b></p>
+            {% if user_id == article.user_id %}
+                <a href="/posts/{{ article.id }}/delete" class="btn btn-warning" style="color:red">Удалить</a>
+                <a href="/posts/{{ article.id }}/update" class="btn btn-warning" style="color:green">Редактировать</a>
+            {% endif %}
+        </div>
+        <div class="contact-info" style="text-align:right;">
+            <p><b>Автор:</b> {{ article.name }} </p>
+            <p><b>Email:</b> {{ article.email }} </p>
+            <p><b>Телефон:</b> {{ article.phone_number }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
