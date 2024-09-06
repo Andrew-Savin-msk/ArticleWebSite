@@ -16,13 +16,13 @@
             Статьи на связи
         </div>
         <ul class="nav-links">
-            <li><a href="/">Главная страница</a></li>
-            <li><a href="/posts">Публикации</a></li>
+            <li><a href="/posts">Главная страница</a></li>
+            <li><a href="/">Публикации</a></li>
             <li><a href="/user_posts">Ваши публикации</a></li>
             <li><a class="btn btn-warning" href="/create-article">Написать статью</a></li>
         </ul>
         {% if current_user.is_authenticated %}
-            <a href="/logout" class="btn btn-primary">Log out</a>
+            <a href="#" class="btn btn-primary">Log out</a>
         {% else %}
             <a href="/login" class="sign-up-button">Log in</a>
         {% endif %}

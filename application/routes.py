@@ -84,7 +84,7 @@ def posts_delete(id):
         return "При удалении статьи произошла ошибка"
 
 
-@app.route('/posts/<int:id>/update', methods=['POST', 'GET'])
+@app.route('/posts/<int:id>/update', methods=['POST'])
 @login_required
 def create_update(id):
     """
@@ -149,7 +149,6 @@ def login_page():
         if user and check_password_hash(user.encrypted_password, password):
             login_user(user)
             flash('User in')
-            # next_page = request.args.get('next')
 
             return redirect('/')
         else:
