@@ -12,8 +12,8 @@
 
         {% for el in articles %}
         <div class="alert alert-info">
-            <h2>{{ el.title }}</h2>
-            <p>{{ el.intro }}</p>
+            <h2>{{ el.intro }}</h2>
+            <p>{{ el.title }}</p>
             <p><b>Дата: {{ el.date }}</b></p>
             <a href="/posts/{{ el.id }}" class="btn btn-warning">Детальнее</a>
         </div>
